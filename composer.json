@@ -1,0 +1,15 @@
+{
+    "name": "orion/phpmvc-framework",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "samo",
+            "email": "janezic.orion@gmail.com"
+        }
+    ],
+    "require": {}
+}
