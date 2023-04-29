@@ -75,11 +75,13 @@ abstract class Model
 
   public function hasError($attribute)
   {
+    // var_dump($this->errors);
     return $this->errors[$attribute] ?? false;
   }
 
   public function getFirstError($attribute)
   {
+    // var_dump($attribute);
     return $this->errors[$attribute][0] ?? false;
   }
 }
