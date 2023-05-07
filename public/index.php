@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
-use \app\controllers\SiteController;
-use \app\controllers\AuthController;
+use app\controllers\SiteController;
+use app\controllers\AuthController;
 use app\core\Application;
 
 require_once __DIR__.'/../vendor/autoload.php';
