@@ -62,4 +62,9 @@ class Application
 		$this->user = null;
 		$this->session->remove('user');
 	}
+
+	public static function isGuest()
+	{
+		return !self::$app->user;
+	}
 }

@@ -26,14 +26,24 @@
           <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-          </li>
-        </ul>
+      <?php if (Application::isGuest()) { ?>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+        </li>
+      </ul>
+      <?php } else { ?>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/logout">Welcome <?php echo Application::$app->user->getDisplayName() ?>
+            (logout)
+          </a>
+        </li>
+      </ul>
+      <?php } ?>
     </div>
   </div>
 </nav>
@@ -42,7 +52,7 @@
 
   if (Application::$app->session->getFlash('success')): ?>
   <div class="alert alert success">
-    <?php echo Application::$app->session->getFlash('success') ?>
+    <?php echo Application::$app->session->getFlash('success'); ?>
   </div>
   
   <?php endif; ?>
