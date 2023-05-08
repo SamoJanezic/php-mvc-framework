@@ -12,6 +12,10 @@ abstract class Model
 	public const RULE_UNIQUE = 'unique';
 
 	public array $errors = [];
+
+	public function getLabel($attribute) {
+		return $this->labels()[$attribute] ?? $attribute;
+	}
 	
 	public function loadData($data)
 	{
@@ -47,6 +51,7 @@ abstract class Model
 					$this->addError($attribute, self::RULE_MAX, $rule);
 				}
 				if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
+					$rule['match'] = $this->getLabel($rule['match']);
 					$this->addError($attribute, self::RULE_MATCH, $rule);
 				}
 				if ($ruleName === self::RULE_UNIQUE) {
@@ -58,7 +63,7 @@ abstract class Model
 					$statement->execute();
 					$record = $statement->fetchObject();
 					if ($record) {
-						$this->addError($attribute, self::RULE_UNIQUE, ['field' => $attribute]);
+						$this->addError($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
 					}
 				}
 			}
