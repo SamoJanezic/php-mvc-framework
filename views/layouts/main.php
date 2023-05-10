@@ -26,7 +26,7 @@
           <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
-      <?php if (Application::isGuest()) { ?>
+      <?php if (Application::isGuest()): ?>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/login">Login</a>
@@ -35,15 +35,18 @@
           <a class="nav-link" href="/register">Register</a>
         </li>
       </ul>
-      <?php } else { ?>
+      <?php else: ?>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/profile">Profile</a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" href="/logout">Welcome <?php echo Application::$app->user->getDisplayName() ?>
             (logout)
           </a>
         </li>
       </ul>
-      <?php } ?>
+      <?php endif; ?>
     </div>
   </div>
 </nav>
