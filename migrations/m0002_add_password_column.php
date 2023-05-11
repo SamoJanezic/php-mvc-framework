@@ -1,5 +1,5 @@
 <?php
-use app\core\Application;
+use samojanezic\phpmvc\Application;
 
 class m0002_add_password_column
 {

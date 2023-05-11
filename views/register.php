@@ -4,7 +4,7 @@
 
 <h1>Create an account</h1>
 
-<?php $form = \app\core\form\Form::begin('', "post") ?>
+<?php $form = \samojanezic\phpmvc\form\Form::begin('', "post") ?>
   <div class="row">
     <div class="col">
       <?php echo $form->field($model, 'firstname') ?>
@@ -17,4 +17,4 @@
   <?php echo $form->field($model, 'password')->passwordField() ?>
   <?php echo $form->field($model, 'confirmPassword')->passwordField() ?>
   <button type="submit" class="btn btn-primary">Submit</button>
-<?php echo \app\core\form\Form::end() ?>
+<?php echo \samojanezic\phpmvc\form\Form::end() ?>

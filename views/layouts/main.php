@@ -1,5 +1,5 @@
 <?php
-  use app\core\Application;
+  use samojanezic\phpmvc\Application;
 ?>
 
 <!doctype html>

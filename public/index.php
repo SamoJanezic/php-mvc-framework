@@ -6,7 +6,7 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 
 use app\controllers\SiteController;
 use app\controllers\AuthController;
-use app\core\Application;
+use samojanezic\phpmvc\Application;
 
 require_once __DIR__.'/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5c4b2870ea518cd3e20e530e07525a6",
+    "content-hash": "a50eb8f1d243911a9ab90b847ff10d07",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -142,6 +142,40 @@
                 }
             ],
             "time": "2023-02-25T19:38:58+00:00"
+        },
+        {
+            "name": "samojanezic/php-mvc-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SamoJanezic/php-mvc-core.git",
+                "reference": "7d69566d4b341d248aaeaf8d9fe863a729a191ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SamoJanezic/php-mvc-core/zipball/7d69566d4b341d248aaeaf8d9fe863a729a191ff",
+                "reference": "7d69566d4b341d248aaeaf8d9fe863a729a191ff",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "samojanezic\\phpmvc\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "samo",
+                    "email": "janezic.orion@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/SamoJanezic/php-mvc-core/issues",
+                "source": "https://github.com/SamoJanezic/php-mvc-core/tree/v1.0.2"
+            },
+            "time": "2023-05-11T15:30:58+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -479,7 +513,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "samojanezic/php-mvc-core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
