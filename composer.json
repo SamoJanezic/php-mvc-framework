@@ -13,6 +13,6 @@
     ],
     "require": {
         "vlucas/phpdotenv": "^5.5",
-        "samojanezic/php-mvc-core": "dev-master"
+        "samojanezic/php-mvc-core": "^1.0"
     }
 }

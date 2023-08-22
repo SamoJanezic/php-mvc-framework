@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a50eb8f1d243911a9ab90b847ff10d07",
+    "content-hash": "1175d34de6fbce6100153d30bb6e2e9e",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -145,19 +145,18 @@
         },
         {
             "name": "samojanezic/php-mvc-core",
-            "version": "dev-master",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SamoJanezic/php-mvc-core.git",
-                "reference": "7d69566d4b341d248aaeaf8d9fe863a729a191ff"
+                "reference": "e74772da343c3cefd1db2c41d5a78ddaa1c647c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SamoJanezic/php-mvc-core/zipball/7d69566d4b341d248aaeaf8d9fe863a729a191ff",
-                "reference": "7d69566d4b341d248aaeaf8d9fe863a729a191ff",
+                "url": "https://api.github.com/repos/SamoJanezic/php-mvc-core/zipball/e74772da343c3cefd1db2c41d5a78ddaa1c647c6",
+                "reference": "e74772da343c3cefd1db2c41d5a78ddaa1c647c6",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -173,9 +172,9 @@
             ],
             "support": {
                 "issues": "https://github.com/SamoJanezic/php-mvc-core/issues",
-                "source": "https://github.com/SamoJanezic/php-mvc-core/tree/v1.0.2"
+                "source": "https://github.com/SamoJanezic/php-mvc-core/tree/v1.0.3"
             },
-            "time": "2023-05-11T15:30:58+00:00"
+            "time": "2023-05-11T16:09:01+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -513,9 +512,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "samojanezic/php-mvc-core": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
