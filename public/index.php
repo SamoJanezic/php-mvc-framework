@@ -1,5 +1,5 @@
 <?php
-
+// phpinfo();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
@@ -21,11 +21,15 @@ $config = [
   ]
 ];
 
+// var_dump($config);
+
 $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->post('/contact', [SiteController::class, 'contact']);
+$app->router->get('/create', [SiteController::class, 'create']);
+$app->router->post('/create', [SiteController::class, 'create']);
 
 $app->router->get('/login', [AuthController::class, 'login']);
 $app->router->post('/login', [AuthController::class, 'login']);
