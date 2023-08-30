@@ -12,7 +12,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
       
-  dbtest:
+  db:
     image: mysql:8
     ports:
       - "3307:3306"
@@ -24,6 +24,18 @@ services:
       MYSQL_DATABASE: php_mvc
       MYSQL_USER: db
       MYSQL_PASSWORD: db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
 
 volumes:
   mysql-data:
