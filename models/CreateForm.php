@@ -2,19 +2,41 @@
 
 namespace app\models;
 
-use samojanezic\phpmvc\Model;
+use samojanezic\phpmvc\PostModel;
+use samojanezic\phpmvc\Application;
 
-class CreateForm extends Model
+class CreateForm extends PostModel
 {
     public string $title = '';
-    public string $body = '';
+    public string $content = '';
     public string $image = '';
+    public string $user_id = '';
+
+    public static function tableName(): string
+	{
+		return 'posts';
+	}
+
+	public function primaryKey(): string
+	{
+		return 'id';
+	}
+
+    public function attributes(): array
+	{
+		return ['title', 'content', 'image', 'user_id'];
+	}
+
+    public function greet() :string
+    {
+        return 'hello';
+    }
 
     public function rules(): array
     {
         return [
             'title' => [self::RULE_REQUIRED],
-            'body' => [self::RULE_REQUIRED],
+            'content' => [self::RULE_REQUIRED],
             'image' => [self::RULE_REQUIRED]
         ];
     }
@@ -23,13 +45,14 @@ class CreateForm extends Model
     {
         return [
             'title' => 'Enter post title',
-            'body' => 'Enter post body',
+            'content' => 'Enter post content',
             'image' => 'Enter image link'
         ];
     }
 
-    public function send()
+    public function save()
     {
-        return true;
+		$this->user_id = Application::$app->user->getId();
+		return parent::save();
     }
 }
