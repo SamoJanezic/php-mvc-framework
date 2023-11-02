@@ -1,0 +1,13 @@
+h1 {
+    color: grey;
+}
+
+.postBox {
+    margin: 2%;
+    padding: 3%;
+    border-style: solid;
+}
+
+.all {
+    border-style: solid;
+}
