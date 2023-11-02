@@ -66,4 +66,9 @@ class User extends UserModel
 	{
 		return $this->firstname.' '.$this->lastname;
 	}
+
+	public function getId(): string
+	{
+		return $this->id;
+	}
 }
