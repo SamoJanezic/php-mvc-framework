@@ -1,4 +1,6 @@
 <?php
+/** @var $model \app\models\Post */
+
 
 namespace app\models;
 
@@ -31,18 +33,7 @@ class Post extends PostModel
 
 	public function attributes(): array
 	{
-		return ['firstname', 'lastname', 'email', 'password', 'status'];
-	}
-
-	public function labels(): array
-	{
-		return [
-			'firstname' => 'First Name',
-			'lastname' => 'Last Name',
-			'email' => 'E-mail',
-			'password' => 'Password',
-			'confirmPassword' => 'Confirm Password',
-		];
+		return ['title', 'content', 'image'];
 	}
     
 	public function greet() :string
@@ -57,7 +48,6 @@ class Post extends PostModel
 
 	public function getPublisher($userID)
 	{
-		// echo "hello";
 		return parent::showPublisher($userID);
 	}
 }

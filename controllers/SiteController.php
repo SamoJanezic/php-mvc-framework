@@ -21,7 +21,6 @@ class SiteController extends Controller
 
 	public function contact(Request $request, Response $response)
 	{
-		// var_dump($request->isPost());
 		$contact = new ContactForm();
 		if ($request->isPost()) {
 			$contact->loadData($request->getBody());
@@ -39,8 +38,8 @@ class SiteController extends Controller
 	{
 		$create = new CreateForm();
 		if ($request->isPost()) {
-			$contact->loadData($request->getBody());
-			if ($contact->validate() && $contact->send()) {
+			$create->loadData($request->getBody());
+			if ($create->validate() && $create->save()) {
 				Application::$app->session->setFlash('success', 'Your blog has been saved.');
 				return $response->redirect('/create');
 			}

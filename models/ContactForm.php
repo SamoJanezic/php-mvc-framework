@@ -8,14 +8,14 @@ class ContactForm extends Model
 {
     public string $subject = '';
     public string $email = '';
-    public string $body = '';
+    public string $conent = '';
 
     public function rules(): array
     {
         return [
             'subject' => [self::RULE_REQUIRED],
             'email' => [self::RULE_REQUIRED],
-            'body' => [self::RULE_REQUIRED],
+            'content' => [self::RULE_REQUIRED],
         ];
     }
 
@@ -24,7 +24,7 @@ class ContactForm extends Model
         return [
             'subject' => 'Enter your subject',
             'email' => 'Enter your Email',
-            'body' => 'Enter Your body',
+            'content' => 'Enter Your content',
         ];
     }
 
