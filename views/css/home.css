@@ -3,11 +3,30 @@ h1 {
 }
 
 .postBox {
-    margin: 2%;
+    margin: 1%;
     padding: 3%;
     border-style: solid;
+    /* border-radius: 10px; */
+    width: 30%;
+    transition: 300ms;
+    height: 80vh;
 }
 
 .all {
-    border-style: solid;
+    display: flex;
+    flex-flow: row wrap;
+    border: solid black;
+    justify-content: space-evenly;
+}
+
+.all :hover {
+    transition: ease-in 300ms;
+    background-color: rgb(243, 234, 234);
+    cursor: pointer;
+}
+
+.img-thumbnail {
+    padding: 0;
+    height: 40%;
+    max-width: 100%;
 }
