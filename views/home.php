@@ -6,7 +6,7 @@
 <h1>Home</h1>
 <h3>Welcome to <? echo $name ?></h3>
 
-<div class="all">
+<div class="postsContainer">
   <?
   $post = new Post;
   $allPosts = $post->getAllPosts();

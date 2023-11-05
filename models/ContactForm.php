@@ -24,7 +24,7 @@ class ContactForm extends Model
         return [
             'subject' => 'Enter your subject',
             'email' => 'Enter your Email',
-            'content' => 'Enter Your content',
+            'body' => 'Enter Your content',
         ];
     }
 

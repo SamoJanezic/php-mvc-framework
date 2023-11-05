@@ -12,14 +12,15 @@ h1 {
     height: 80vh;
 }
 
-.all {
+.postsContainer {
     display: flex;
     flex-flow: row wrap;
     border: solid black;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    /* align-self: flex-start; */
 }
 
-.all :hover {
+.postsContainer :hover {
     transition: ease-in 300ms;
     background-color: rgb(243, 234, 234);
     cursor: pointer;
