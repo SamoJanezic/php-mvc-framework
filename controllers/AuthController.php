@@ -9,12 +9,15 @@ use samojanezic\phpmvc\Response;
 use app\models\User;
 use app\models\LoginForm;
 use samojanezic\phpmvc\middlewares\AuthMiddleware;
+use app\models\CreateForm;
+
 
 class AuthController extends Controller
 {
 	public function __construct()
 	{
 		$this->registerMiddleware(new AuthMiddleware(['profile']));
+		$this->registerMiddleware(new AuthMiddleware(['create']));
 	}
 
 	public function login(Request $request, Response $response)
@@ -63,5 +66,20 @@ class AuthController extends Controller
 	public function profile()
 	{
 		return $this->render('profile');
+	}
+
+	public function create(Request $request, Response $response)
+	{
+	$create = new CreateForm();
+	if ($request->isPost()) {
+		$create->loadData($request->getBody());
+		if ($create->validate() && $create->save()) {
+		Application::$app->session->setFlash('success', 'Your blog has been saved.');
+		return $response->redirect('/create');
+		}
+	}
+	return $this->render('create', [
+		'model' => $create,
+	]);
 	}
 }

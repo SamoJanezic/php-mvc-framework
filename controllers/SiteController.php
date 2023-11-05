@@ -7,7 +7,6 @@ use samojanezic\phpmvc\Controller;
 use samojanezic\phpmvc\Request;
 use samojanezic\phpmvc\Response;
 use app\models\ContactForm;
-use app\models\CreateForm;
 
 class SiteController extends Controller
 {
@@ -34,18 +33,4 @@ class SiteController extends Controller
 		]);
 	}
 
-	public function create(Request $request, Response $response)
-	{
-		$create = new CreateForm();
-		if ($request->isPost()) {
-			$create->loadData($request->getBody());
-			if ($create->validate() && $create->save()) {
-				Application::$app->session->setFlash('success', 'Your blog has been saved.');
-				return $response->redirect('/create');
-			}
-		}
-		return $this->render('create', [
-			'model' => $create,
-		]);
-	}
 }
