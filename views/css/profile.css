@@ -1,0 +1,22 @@
+.table-image {
+    height: 13vh;
+    /* max-height: 98px; */
+  }
+
+  table {
+    font-size: medium;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+  }
+
+  th {
+    border-bottom: 2px solid black;;
+  }
+
+  td, th {
+    text-align: left;
+    padding: 8px;
+    /* max-width: 120px;; */
+  }

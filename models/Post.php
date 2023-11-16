@@ -5,12 +5,16 @@
 namespace app\models;
 
 use samojanezic\phpmvc\PostModel;
+use samojanezic\phpmvc\Application;
+
 
 class Post extends PostModel
 {
 	public string $title = '';
 	public string $content = '';
 	public string $image = '';
+	public string $user_id = '';
+
 
 	public static function tableName(): string
 	{
@@ -31,23 +35,51 @@ class Post extends PostModel
 		];
 	}
 
+	public function labels(): array
+    {
+        return [
+            'title' => 'Enter post title',
+            'content' => 'Enter post content',
+            'image' => 'Enter image link'
+        ];
+    }
+
 	public function attributes(): array
 	{
-		return ['title', 'content', 'image'];
+		return ['title', 'content', 'image', 'user_id'];
 	}
-    
+
 	public function greet() :string
     {
         return "hello ";
     }
 
-	public function getAllPosts()
+	public function save()
+    {
+		$this->user_id = Application::$app->user->getId();
+		return parent::save();
+    }
+
+	public function getAllPosts($id = false)
 	{
-		return parent::showAll();
+		return parent::showAll($id);
 	}
 
 	public function getPublisher($userID)
 	{
 		return parent::showPublisher($userID);
+	}
+
+	public function editPost()
+	{
+		return parent::editRow();
+	}
+
+	public function deletePost($id)
+	{
+		// var_dump($id);
+		return parent::deleteRow($id);
+
+		// return parent::deleteRow($id['id']);
 	}
 }

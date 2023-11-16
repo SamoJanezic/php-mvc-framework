@@ -9,7 +9,7 @@ use samojanezic\phpmvc\Response;
 use app\models\User;
 use app\models\LoginForm;
 use samojanezic\phpmvc\middlewares\AuthMiddleware;
-use app\models\CreateForm;
+use app\models\Post;
 
 
 class AuthController extends Controller
@@ -70,16 +70,29 @@ class AuthController extends Controller
 
 	public function create(Request $request, Response $response)
 	{
-	$create = new CreateForm();
-	if ($request->isPost()) {
-		$create->loadData($request->getBody());
-		if ($create->validate() && $create->save()) {
-		Application::$app->session->setFlash('success', 'Your blog has been saved.');
-		return $response->redirect('/create');
+		$create = new Post();
+		if ($request->isPost()) {
+			$create->loadData($request->getBody());
+			if ($create->validate() && $create->save()) {
+				Application::$app->session->setFlash('success', 'Your blog has been saved.');
+				return $response->redirect('/create');
+			}
 		}
+		return $this->render('create', [
+			'model' => $create,
+		]);
 	}
-	return $this->render('create', [
-		'model' => $create,
-	]);
+
+	public function delete(Request $request, Response $response)
+	{
+		$post = new Post();
+		$id = $request->getBody()['id'];
+		var_dump($id);
+		die;
+		if ($id) {
+			$post->deletePost($id);
+			Application::$app->session->setFlash('success', 'Blog has been deleted');
+			return $response->redirect('/profile');
+		}
 	}
 }

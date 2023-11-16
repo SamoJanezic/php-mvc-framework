@@ -1,5 +1,4 @@
 <?php
-// phpinfo();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
@@ -27,6 +26,7 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/contact', [SiteController::class, 'contact']);
+$app->router->get('/delete', [SiteController::class,'delete']);
 $app->router->post('/contact', [SiteController::class, 'contact']);
 
 
@@ -38,6 +38,7 @@ $app->router->get('/logout', [AuthController::class, 'logout']);
 $app->router->get('/profile', [AuthController::class, 'profile']);
 $app->router->get('/create', [AuthController::class, 'create']);
 $app->router->post('/create', [AuthController::class, 'create']);
+$app->router->post('/delete', [AuthController::class, 'delete']);
 
 
 
