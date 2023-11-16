@@ -39,6 +39,7 @@ $app->router->get('/profile', [AuthController::class, 'profile']);
 $app->router->get('/create', [AuthController::class, 'create']);
 $app->router->post('/create', [AuthController::class, 'create']);
 $app->router->post('/delete', [AuthController::class, 'delete']);
+$app->router->get('/ownPosts', [AuthController::class, 'ownPosts']);
 
 
 

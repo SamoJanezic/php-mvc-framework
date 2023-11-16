@@ -18,6 +18,7 @@ class AuthController extends Controller
 	{
 		$this->registerMiddleware(new AuthMiddleware(['profile']));
 		$this->registerMiddleware(new AuthMiddleware(['create']));
+		$this->registerMiddleware(new AuthMiddleware(['ownPosts']));
 	}
 
 	public function login(Request $request, Response $response)
@@ -81,6 +82,11 @@ class AuthController extends Controller
 		return $this->render('create', [
 			'model' => $create,
 		]);
+	}
+
+	public function ownPosts()
+	{
+		return $this->render('ownPosts');
 	}
 
 	public function delete(Request $request, Response $response)
