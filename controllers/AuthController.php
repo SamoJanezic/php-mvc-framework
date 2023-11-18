@@ -84,21 +84,23 @@ class AuthController extends Controller
 		]);
 	}
 
-	public function ownPosts()
+	public function ownPosts(Request $request, Response $response)
 	{
-		return $this->render('ownPosts');
+		$ownPost = new Post();
+		$ownPost->loadData($request->getBody());
+		return $this->render('ownPosts', [
+			'model' => $ownPost,
+		]);
 	}
 
 	public function delete(Request $request, Response $response)
 	{
 		$post = new Post();
-		$id = $request->getBody()['id'];
-		var_dump($id);
-		die;
-		if ($id) {
+		if ($request->isPost()) {
+			$id = $request->getBody()['id'];
 			$post->deletePost($id);
 			Application::$app->session->setFlash('success', 'Blog has been deleted');
-			return $response->redirect('/profile');
+			return $response->redirect('/ownPosts');
 		}
 	}
 }

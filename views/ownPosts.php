@@ -2,10 +2,8 @@
 <?php
 use app\models\Post;
 use samojanezic\phpmvc\Application;
-use samojanezic\phpmvc\form\Form;
 
 $this->title = 'ownPosts';
-
 ?>
 
 <h1>My Posts</h1>
@@ -38,21 +36,10 @@ forEach($userPosts as $single) {
                 </td>
                 <td><a href="">edit</a></td>
                 <td>
-                    <?
-                    $form = Form::begin('/delete', 'post');
-                    var_dump($model);
-                    // $form->field($model, 'id');
-                    ?>
-                    <button type="submit" class="btn btn-link"></button>
-                    <?
-                    $form::end();
-                    ?>
-                    <!-- <button type="submit" class="btn btn-link">delete</button> -->
                     <form action="/delete" method="post">
-                        <input type="hidden" name="id" value="<?php echo $single->id; ?>">
+                        <input type="hidden" name="id" value="<? echo $single->id; ?>">
                         <button type="submit" class="btn btn-link">Delete</button>
                     </form>
-                    <?// \samojanezic\phpmvc\form\Form::end(); ?>
                 </td>
             </tr>
         </tbody>
