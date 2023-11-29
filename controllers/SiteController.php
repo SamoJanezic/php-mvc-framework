@@ -7,6 +7,7 @@ use samojanezic\phpmvc\Controller;
 use samojanezic\phpmvc\Request;
 use samojanezic\phpmvc\Response;
 use app\models\ContactForm;
+use app\models\Post;
 
 class SiteController extends Controller
 {
@@ -33,4 +34,18 @@ class SiteController extends Controller
 		]);
 	}
 
+	public function postPage(Request $request)
+	{
+		$params = [];
+
+		$post = new Post;
+		if ($request->isGet()) {
+			$payLoad = $request->getBody();
+			$load = $post->getAllPosts('id' ,$payLoad['url_name']);
+			$params['title'] = $load[0]->title;
+			$params['content'] = $load[0]->content;
+			$params['image'] = $load[0]->image;
+		}
+		return $this->render('/postPage', $params);
+	}
 }

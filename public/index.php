@@ -28,6 +28,7 @@ $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->get('/delete', [SiteController::class,'delete']);
 $app->router->post('/contact', [SiteController::class, 'contact']);
+$app->router->get('/postPage', [SiteController::class, 'postPage']);
 
 
 $app->router->get('/login', [AuthController::class, 'login']);
