@@ -60,9 +60,9 @@ class Post extends PostModel
 		return parent::save();
     }
 
-	public function getAllPosts($id = false)
+	public function getAllPosts($column = false, $id = false)
 	{
-		return parent::showAll($id);
+		return parent::showAll($column, $id);
 	}
 
 	public function getPublisher($userID)
@@ -77,9 +77,6 @@ class Post extends PostModel
 
 	public function deletePost($id)
 	{
-		// var_dump($id);
 		return parent::deleteRow($id);
-
-		// return parent::deleteRow($id['id']);
 	}
 }
