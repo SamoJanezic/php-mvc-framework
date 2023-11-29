@@ -14,6 +14,7 @@ class Post extends PostModel
 	public string $content = '';
 	public string $image = '';
 	public string $user_id = '';
+	public string $url_name = '';
 
 
 	public static function tableName(): string
@@ -24,6 +25,18 @@ class Post extends PostModel
 	public function primaryKey(): string
 	{
 		return 'id';
+	}
+
+	public function getUrlName()
+	{
+		$title = strtolower(str_replace(' ', '-', $this->title));
+		if (filter_var('/' . $title, FILTER_VALIDATE_URL)) {
+			echo("is a valid URL");
+		} else {
+			echo ("not a valid URL");
+		}
+		var_dump($title);
+		$rand = sha1(microtime(true).mt_rand(10000,90000));
 	}
 
 	public function rules(): array
