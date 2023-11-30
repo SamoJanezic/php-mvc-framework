@@ -21,7 +21,7 @@
       <h5>                <? echo $single->title ?></h5>
       <div>               <? echo substr($single->content, 0, 100) ?>...
         <form action="/postPage" method="get">
-          <input type="hidden" name="url_name" value="<? echo $single->id; ?>">
+          <input type="hidden" name="url_name" value="<? echo $single->url_name; ?>">
           <button type="submit" class= "btn btn-link">[read more]</button>
         </form>
       </div>
@@ -34,7 +34,7 @@
       <h5>                <? echo $single->title ?></h5>
       <div>               <? echo substr($single->content, 0, 100) ?>...
         <form action="/postPage" method="get">
-          <input type="hidden" name="url_name" value="<? echo $single->id; ?>">
+          <input type="hidden" name="url_name" value="<? echo $single->url_name; ?>">
           <button type="submit" class= "btn btn-link">[read more]</button>
         </form>
       </div>

@@ -27,16 +27,17 @@ class Post extends PostModel
 		return 'id';
 	}
 
-	public function getUrlName()
+	public function clean($string)
 	{
-		$title = strtolower(str_replace(' ', '-', $this->title));
-		if (filter_var('/' . $title, FILTER_VALIDATE_URL)) {
-			echo("is a valid URL");
-		} else {
-			echo ("not a valid URL");
-		}
-		var_dump($title);
-		$rand = sha1(microtime(true).mt_rand(10000,90000));
+		$string = strtolower(str_replace(' ', '-', $string)); // Replaces all spaces with hyphens.
+		return preg_replace('/[^A-Za-z0-9]-/', '', $string); // Removes special chars.
+	}
+
+	public function getUrlName($string, $l)
+	{
+		$string = $this->clean($string);
+		$unique = substr(md5(uniqid(mt_rand(), true)), 0, $l);
+		return $string . '-' . $unique;
 	}
 
 	public function rules(): array
@@ -59,7 +60,7 @@ class Post extends PostModel
 
 	public function attributes(): array
 	{
-		return ['title', 'content', 'image', 'user_id'];
+		return ['title', 'content', 'image', 'user_id', 'url_name'];
 	}
 
 	public function greet() :string
@@ -69,6 +70,7 @@ class Post extends PostModel
 
 	public function save()
     {
+		$this->url_name = $this->getUrlName($this->title, 8);
 		$this->user_id = Application::$app->user->getId();
 		return parent::save();
     }

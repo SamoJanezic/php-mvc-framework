@@ -41,7 +41,7 @@ class SiteController extends Controller
 		$post = new Post;
 		if ($request->isGet()) {
 			$payLoad = $request->getBody();
-			$load = $post->getPosts('id' ,$payLoad['url_name']);
+			$load = $post->getPosts('url_name' ,$payLoad['url_name']);
 			$params['title'] = $load[0]->title;
 			$params['content'] = $load[0]->content;
 			$params['image'] = $load[0]->image;
