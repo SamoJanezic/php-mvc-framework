@@ -12,4 +12,5 @@
     font-style: normal;
     word-break: break-word;
     font-weight: 400;
+    white-space: pre-wrap;
 }
