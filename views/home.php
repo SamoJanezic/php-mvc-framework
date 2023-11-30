@@ -10,7 +10,7 @@
 <div class="postsContainer">
   <?
   $post = new Post;
-  $allPosts = $post->getAllPosts();
+  $allPosts = $post->getPosts();
   forEach($allPosts as $idx=>$single) {
   ?>
   <? if($idx === 0) { ?>

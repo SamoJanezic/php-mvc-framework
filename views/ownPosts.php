@@ -22,7 +22,7 @@ $this->title = 'ownPosts';
 <?
 $post = new Post;
 $user_id = Application::$app->user->getId();
-$userPosts = $post->getAllPosts('user_id', $user_id);
+$userPosts = $post->getPosts('user_id', $user_id);
 forEach($userPosts as $single) {
 ?>
         <tbody class="contentBox">

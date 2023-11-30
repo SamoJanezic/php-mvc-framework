@@ -73,7 +73,7 @@ class Post extends PostModel
 		return parent::save();
     }
 
-	public function getAllPosts($column = false, $id = false)
+	public function getPosts($column = false, $id = false)
 	{
 		return parent::showAll($column, $id);
 	}
