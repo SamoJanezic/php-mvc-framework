@@ -34,7 +34,12 @@ forEach($userPosts as $single) {
                 <td class="image-container">
                     <img src=<? echo $single->image ?> alt= 'no image found' class='table-image'>
                 </td>
-                <td><a href="">edit</a></td>
+                <td>
+                    <form action="/edit-post" method="get">
+                        <input type="hidden" name="id" value="<? echo $single->id; ?>">
+                        <button type="submit" class="btn btn-link">Edit</button>
+                    </form>
+                </td>
                 <td>
                     <form action="/delete" method="post">
                         <input type="hidden" name="id" value="<? echo $single->id; ?>">

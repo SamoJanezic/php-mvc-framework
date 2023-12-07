@@ -1,0 +1,15 @@
+.edit-box {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 5;
+    justify-content: space-between;
+}
+
+.form-box {
+    flex-grow: 4;
+}
+
+.img-box {
+    max-height: 45vh;
+    max-width: 20vw;
+}

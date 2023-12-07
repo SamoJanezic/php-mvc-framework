@@ -86,8 +86,6 @@ class AuthController extends Controller
 
 	public function ownPosts(Request $request, Response $response)
 	{
-		$ownPost = new Post();
-		$ownPost->loadData($request->getBody());
 		return $this->render('ownPosts', [
 			'model' => $ownPost,
 		]);
@@ -100,7 +98,33 @@ class AuthController extends Controller
 			$id = $request->getBody()['id'];
 			$post->deletePost($id);
 			Application::$app->session->setFlash('success', 'Blog has been deleted');
-			return $response->redirect('/ownPosts');
+			return $response->redirect('/own-posts');
 		}
+	}
+
+	public function editPost(Request $request, Response $response)
+	{
+		$post = new Post();
+		$payLoad = $request->getBody();
+		$load = $post->getPosts('id', $payLoad['id']);
+		$post->title = $load[0]->title;
+		$post->content = $load[0]->content;
+		$post->image = $load[0]->image;
+		$post->id = $load[0]->id;
+		$params = [
+			'id' => $load[0]->id,
+			'image' => $load[0]->image,
+			'model' => $post
+		];
+
+		if($request->isPost()) {
+			$post->loadData($request->getBody());
+			$id = $request->getBody()['id'];
+			$post->editPost($id);
+			Application::$app->session->setFlash('success', 'Changes successfuly saved');
+			return $response->redirect('/own-posts');
+		}
+
+		return $this->render('editPost',$params);
 	}
 }
