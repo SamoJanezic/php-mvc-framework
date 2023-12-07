@@ -26,7 +26,6 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [SiteController::class, 'home']);
 $app->router->get('/contact', [SiteController::class, 'contact']);
-$app->router->get('/delete', [SiteController::class,'delete']);
 $app->router->post('/contact', [SiteController::class, 'contact']);
 $app->router->get('/postPage', [SiteController::class, 'postPage']);
 
@@ -40,8 +39,9 @@ $app->router->get('/profile', [AuthController::class, 'profile']);
 $app->router->get('/create', [AuthController::class, 'create']);
 $app->router->post('/create', [AuthController::class, 'create']);
 $app->router->post('/delete', [AuthController::class, 'delete']);
-$app->router->get('/ownPosts', [AuthController::class, 'ownPosts']);
-
+$app->router->get('/own-posts', [AuthController::class, 'ownPosts']);
+$app->router->get('/edit-post', [AuthController::class, 'editPost']);
+$app->router->post('/edit-post', [AuthController::class, 'editPost']);
 
 
 

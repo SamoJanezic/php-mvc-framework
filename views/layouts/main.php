@@ -40,7 +40,7 @@
           <a class="nav-link" href="/create">Create</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/ownPosts">My Posts</a>
+          <a class="nav-link" href="/own-posts">My Posts</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/profile">Profile</a>
