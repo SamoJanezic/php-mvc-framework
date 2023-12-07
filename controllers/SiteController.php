@@ -36,16 +36,16 @@ class SiteController extends Controller
 
 	public function postPage(Request $request)
 	{
-		$params = [];
-
 		$post = new Post;
-		if ($request->isGet()) {
-			$payLoad = $request->getBody();
-			$load = $post->getPosts('url_name' ,$payLoad['url_name']);
-			$params['title'] = $load[0]->title;
-			$params['content'] = $load[0]->content;
-			$params['image'] = $load[0]->image;
-		}
+
+		$payLoad = $request->getBody();
+		$load = $post->getPosts('url_name' ,$payLoad['url_name']);
+		$params = [
+			'title' => $load[0]->title,
+			'content' => $load[0]->content,
+			'image' => $load[0]->image
+		];
+
 		return $this->render('/postPage', $params);
 	}
 }
