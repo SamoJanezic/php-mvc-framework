@@ -6,6 +6,7 @@ namespace app\models;
 
 use samojanezic\phpmvc\PostModel;
 use samojanezic\phpmvc\Application;
+use samojanezic\phpmvc\Helpers;
 
 
 class Post extends PostModel
@@ -25,19 +26,6 @@ class Post extends PostModel
 	public function primaryKey(): string
 	{
 		return 'id';
-	}
-
-	public function clean($string)
-	{
-		$string = strtolower(str_replace(' ', '-', $string)); // Replaces all spaces with hyphens.
-		return preg_replace('/[^A-Za-z0-9]-/', '', $string); // Removes special chars.
-	}
-
-	public function getUrlName($string, $l)
-	{
-		$string = $this->clean($string);
-		$unique = substr(md5(uniqid(mt_rand(), true)), 0, $l);
-		return $string . '-' . $unique;
 	}
 
 	public function rules(): array
@@ -70,7 +58,7 @@ class Post extends PostModel
 
 	public function save()
     {
-		$this->url_name = $this->getUrlName($this->title, 8);
+		$this->url_name = Helpers::getUniqueName($this->title, 8);
 		$this->user_id = Application::$app->user->getId();
 		return parent::save();
     }
@@ -85,9 +73,9 @@ class Post extends PostModel
 		return parent::showPublisher($userID);
 	}
 
-	public function editPost()
+	public function editPost($id)
 	{
-		return parent::editRow();
+		return parent::editRow($id, $this->title, $this->content, $this->image);
 	}
 
 	public function deletePost($id)
