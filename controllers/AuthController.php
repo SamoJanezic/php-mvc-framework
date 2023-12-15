@@ -99,6 +99,9 @@ class AuthController extends Controller
 		$post = new Post();
 		if ($request->isPost()) {
 			$id = $request->getBody()['id'];
+			$img = 'image';
+			$image = $post->findOne(['id' => $id])->$img;
+			unlink($image);
 			$post->deletePost($id);
 			Application::$app->session->setFlash('success', 'Blog has been deleted');
 			return $response->redirect('/own-posts');
@@ -121,6 +124,7 @@ class AuthController extends Controller
 		];
 
 		if($request->isPost()) {
+			$post->image = Helpers::uploadImage('images/');
 			$post->loadData($request->getBody());
 			$id = $request->getBody()['id'];
 			$post->editPost($id);
