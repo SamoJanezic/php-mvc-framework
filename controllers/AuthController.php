@@ -6,9 +6,10 @@ use samojanezic\phpmvc\Application;
 use samojanezic\phpmvc\Controller;
 use samojanezic\phpmvc\Request;
 use samojanezic\phpmvc\Response;
+use samojanezic\phpmvc\middlewares\AuthMiddleware;
+use samojanezic\phpmvc\Helpers;
 use app\models\User;
 use app\models\LoginForm;
-use samojanezic\phpmvc\middlewares\AuthMiddleware;
 use app\models\Post;
 
 
@@ -73,6 +74,7 @@ class AuthController extends Controller
 	{
 		$create = new Post();
 		if ($request->isPost()) {
+			$create->image = Helpers::uploadImage('images/');
 			$create->loadData($request->getBody());
 			if ($create->validate() && $create->save()) {
 				Application::$app->session->setFlash('success', 'Your blog has been saved.');
@@ -86,6 +88,7 @@ class AuthController extends Controller
 
 	public function ownPosts(Request $request, Response $response)
 	{
+		$ownPost = new Post();
 		return $this->render('ownPosts', [
 			'model' => $ownPost,
 		]);

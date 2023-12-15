@@ -34,7 +34,7 @@ h1 {
     height: 80vh;
     text-decoration: none;
     color: black;
-
+    transition: ease-in 300ms;
 }
 
 .img-thumbnail {

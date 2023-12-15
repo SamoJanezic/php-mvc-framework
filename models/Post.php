@@ -42,7 +42,7 @@ class Post extends PostModel
         return [
             'title' => 'Enter post title',
             'content' => 'Enter post content',
-            'image' => 'Enter image link'
+            'image' => 'Select image file'
         ];
     }
 

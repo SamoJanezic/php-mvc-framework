@@ -10,7 +10,7 @@ use samojanezic\phpmvc\form\TextareaField;
     $form = Form::begin('', 'post');
     echo $form->field($model, 'title');
     echo new TextareaField($model, 'content');
-    echo $form->field($model, 'image');
+    echo $form->field($model, 'image')->fileField();
 ?>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" value= class="btn btn-primary">Submit</button>
 <?  $form::end(); ?>
