@@ -1,0 +1,7 @@
+.em {
+    width: 50vW;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 12px 0;
+}
