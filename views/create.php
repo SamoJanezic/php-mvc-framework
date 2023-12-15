@@ -12,5 +12,5 @@ use samojanezic\phpmvc\form\TextareaField;
     echo new TextareaField($model, 'content');
     echo $form->field($model, 'image')->fileField();
 ?>
-    <button type="submit" value= class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 <?  $form::end(); ?>

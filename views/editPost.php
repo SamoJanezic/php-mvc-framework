@@ -11,8 +11,8 @@ use samojanezic\phpmvc\form\TextareaField;
         $form = Form::begin('', 'post');
         echo $form->field($model, 'title');
         echo new TextareaField($model, 'content');
-        echo $form->field($model, 'image');
-    ?>
+        echo $form->field($model, 'image')->fileField();
+        ?>
     <input type="hidden" name="id" value="<? echo $id?>">
         <button type="submit" class="btn btn-primary">Save</button>
     <? $form::end(); ?>
