@@ -2,8 +2,6 @@
 <?php
 use app\models\Post;
 use samojanezic\phpmvc\Application;
-
-$this->title = 'ownPosts';
 ?>
 
 <h1>My Posts</h1>
@@ -50,3 +48,4 @@ forEach($userPosts as $single) {
         </tbody>
     <? } ?>
     </table>
+    <a href="/create" class="btn btn-primary">Create new</a>
