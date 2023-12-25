@@ -13,8 +13,10 @@ class SiteController extends Controller
 {
 	public function home()
 	{
+		$post = new Post;
 		$params = [
-			'name' => "the Code blog"
+			'name' => "the Code blog",
+			'allPosts' => $post->getPosts(),
 		];
 		return $this->render('home', $params);
 	}
