@@ -15,6 +15,7 @@ class User extends UserModel
 	public int $status = self::STATUS_INACTIVE;
 	public string $password = '';
 	public string $confirmPassword = '';
+	public string $user_pic = '';
 
 	public static function tableName(): string
 	{
@@ -43,12 +44,13 @@ class User extends UserModel
 			]],
 			'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8], [self::RULE_MAX, 'max' => 24]],
 			'confirmPassword' => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']],
+			'user_pic' => [self::RULE_REQUIRED],
 		];
 	}
 
 	public function attributes(): array
 	{
-		return ['firstname', 'lastname', 'email', 'password', 'status'];
+		return ['firstname', 'lastname', 'user_pic', 'email', 'password', 'status'];
 	}
 
 	public function labels(): array
@@ -59,6 +61,7 @@ class User extends UserModel
 			'email' => 'E-mail',
 			'password' => 'Password',
 			'confirmPassword' => 'Confirm Password',
+			'user_pic' => 'Select user image'
 		];
 	}
 

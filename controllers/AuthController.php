@@ -43,7 +43,7 @@ class AuthController extends Controller
 		$user = new User();
 		if ($request->isPost()) {
 			$user->loadData($request->getBody());
-
+			$user->user_pic = Helpers::uploadImage('user_pic', 'images/');
 			if ($user->validate() && $user->save()) {
 				Application::$app->session->setFlash('success', 'Thanks for registering');
 				Application::$app->response->redirect('/');
@@ -74,7 +74,7 @@ class AuthController extends Controller
 	{
 		$create = new Post();
 		if ($request->isPost()) {
-			$create->image = Helpers::uploadImage('images/');
+			$create->image = Helpers::uploadImage('image', 'images/');
 			$create->loadData($request->getBody());
 			if ($create->validate() && $create->save()) {
 				Application::$app->session->setFlash('success', 'Your blog has been saved.');
@@ -124,7 +124,7 @@ class AuthController extends Controller
 		];
 
 		if($request->isPost()) {
-			$post->image = Helpers::uploadImage('images/');
+			$post->image = Helpers::uploadImage('image', 'images/');
 			$post->loadData($request->getBody());
 			$id = $request->getBody()['id'];
 			$post->editPost($id);
