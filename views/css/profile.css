@@ -5,3 +5,17 @@
     justify-content: space-between;
     padding: 12px 0;
 }
+.info-box {
+    display:flex;
+}
+
+.image-box {
+    padding: 0px 200px;
+}
+
+.user-pic {
+    height:200px;
+    width: 200px;
+    object-fit: contain;
+    float: right;
+}

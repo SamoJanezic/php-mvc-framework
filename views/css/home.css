@@ -48,3 +48,8 @@ button, input[type="submit"], input[type="reset"] {
     max-width: 100%;
 }
 
+.user_pic {
+    height: 25px;
+    width:25px;
+}
+
