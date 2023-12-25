@@ -1,5 +1,9 @@
-#build image
-docker build -t php-mvc ./docker
+#image start
+docker-compose up (-d)(detached)
 
-#run image
-docker run -d --rm -p 8080:80 --name php-mvc -v "$PWD":/var/www php-mvc
+#image stop
+docker-compose down
+
+#access with bash
+docker exec -it php-mvc-framework_app_1 bash
+
