@@ -10,25 +10,26 @@ button, input[type="submit"], input[type="reset"] {
     padding:40px;
 }
 
-.firstPost {
+.post-box--first {
     margin: 1%;
-    border-style: solid;
+    border-style: double;
     width: 100%;
     text-decoration: none;
     color: black;
     transition: ease-in 300ms;
+    height: 70vh;
 }
 
-.postBox {
+.post-box {
     margin: 1%;
     border-style: solid;
     /* border-radius: 10px; */
     width: 30%;
     transition: 300ms;
-    height: 90vh;
+    height: 70vh;
 }
 
-.postsContainer {
+.posts-container {
     display: flex;
     flex-flow: row wrap;
     border: solid black;
@@ -36,20 +37,30 @@ button, input[type="submit"], input[type="reset"] {
     align-self: flex-start;
 }
 
-.postsContainer :hover {
+.posts-container :hover {
     transition: ease-in 300ms;
     background-color: rgb(243, 234, 234);
-    /* cursor: pointer; */
+}
+
+.post-text{
+    max-height: 15vh;
 }
 
 .img-thumbnail {
     padding: 0;
-    max-height: 30%;
-    max-width: 100%;
+    max-height: 28vh;
+    max-width: 15vw;
 }
 
-.user_pic {
+.img-thumbnail--first {
+    max-height: 35vh;
+    max-Width: 50vw;
+}
+
+.user-pic {
     height: 25px;
-    width:25px;
+    width: 25px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
