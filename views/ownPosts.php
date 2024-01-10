@@ -1,8 +1,4 @@
 <style><?php include 'css/ownPosts.css'; ?></style>
-<?php
-use app\models\Post;
-use samojanezic\phpmvc\Application;
-?>
 
 <h1>My Posts</h1>
 <table class=mainTable>
@@ -18,9 +14,6 @@ use samojanezic\phpmvc\Application;
             </tr>
         </thead>
 <?
-$post = new Post;
-$user_id = Application::$app->user->getId();
-$userPosts = $post->getPosts('user_id', $user_id);
 forEach($userPosts as $single) {
 ?>
         <tbody class="contentBox">
