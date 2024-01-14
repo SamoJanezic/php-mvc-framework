@@ -7,3 +7,9 @@ docker-compose down
 #access with bash
 docker exec -it php-mvc-framework_app_1 bash
 
+#delete all containers including its volumes use,
+docker rm -vf $(docker ps -aq)
+
+#delete all images
+docker rmi -f $(docker images -aq)
+

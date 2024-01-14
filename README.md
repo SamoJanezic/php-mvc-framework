@@ -3,6 +3,7 @@ made with php 7.4.33;
 
 #start\
 locate folder\
+composer update\
 docker-compose up -d\
 docker exec -it php-mvc-framework_app_1 php migrations.php\
 docker-compose restart\
