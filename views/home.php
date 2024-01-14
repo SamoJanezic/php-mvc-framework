@@ -1,4 +1,5 @@
 <style><?php include 'css/home.css'; ?></style>
+<script><?php include 'script/infiniteScroll.js'; ?></script>
 
 <?php
   use app\models\Post;
