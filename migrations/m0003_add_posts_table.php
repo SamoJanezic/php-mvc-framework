@@ -11,6 +11,8 @@ class m0003_add_posts_table
         title VARCHAR(255) NOT NULL,
         content VARCHAR(255) NOT NULL,
         image VARCHAR(255) NOT NULL,
+        user_id INT NOT NULL,
+        url_name VARCHAR(255) NOT NULL,
         created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=INNODB;";
     $db->pdo->exec($SQL);
