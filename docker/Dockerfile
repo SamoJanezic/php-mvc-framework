@@ -42,5 +42,6 @@ WORKDIR /var/www
 # Change the owner of the container document root
 RUN chown -R www-data:www-data /var/www
 
+ENTRYPOINT ["/var/www/docker/docker-entrypoint.sh"]
 # Start Apache in foreground
 CMD ["apache2-foreground"]

@@ -11,7 +11,9 @@ services:
       - ./:/var/www
     extra_hosts:
       - host.docker.internal:host-gateway
-      
+    depends_on:
+      - db
+
   db:
     image: mysql:8
     ports:
