@@ -4,10 +4,11 @@
 <?php
   use app\models\Post;
 ?>
+<div id="app"></div>
 
+<script><?php include 'script/script.js'; ?></script>
 <h1>Home</h1>
 <h3>Welcome to <? echo $name ?></h3>
-
 <div class="posts-container">
   <?
   $post = new Post;
