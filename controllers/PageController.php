@@ -12,7 +12,7 @@ class PageController extends Controller
 	{
 		$post = new Post;
 		$params = [
-			'name' => "the Code blog",
+			'name' => "the BloJist",
 			'allPosts' => $post->getPosts(),
 		];
 		return $this->render('home', $params);
@@ -31,5 +31,14 @@ class PageController extends Controller
 		];
 
 		return $this->render('/postPage', $params);
+	}
+
+	public function getPosts(Request $request)
+	{
+		$post = new Post;
+		$posts = $post->getPosts();
+		forEach($posts as $single) {
+			echo json_encode($single);
+		}
 	}
 }

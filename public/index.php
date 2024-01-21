@@ -32,6 +32,7 @@ $app->router->get('/', [PageController::class, 'home']);
 $app->router->get('/contact', [ContactController::class, 'contact']);
 $app->router->post('/contact', [ContactController::class, 'contact']);
 $app->router->get('/postPage', [PageController::class, 'postPage']);
+$app->router->get('/getPosts', [PageController::class, 'getPosts']);
 
 
 $app->router->get('/login', [LoginController::class, 'login']);
