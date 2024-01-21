@@ -43,9 +43,12 @@ class PostController extends AuthController
 		$post = new Post();
 		if ($request->isPost()) {
 			$id = $request->getBody()['id'];
+			$files = glob('images/*');
 			$img = 'image';
 			$image = $post->findOne(['id' => $id])->$img;
-			unlink($image);
+			if(in_array($image, $files)) {
+				unlink($image);
+			}
 			$post->deletePost($id);
 			Application::$app->session->setFlash('success', 'Blog has been deleted');
 			return $response->redirect('/own-posts');
