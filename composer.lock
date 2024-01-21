@@ -145,7 +145,7 @@
         },
         {
             "name": "samojanezic/php-mvc-core",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SamoJanezic/php-mvc-core.git",
@@ -172,7 +172,7 @@
             ],
             "support": {
                 "issues": "https://github.com/SamoJanezic/php-mvc-core/issues",
-                "source": "https://github.com/SamoJanezic/php-mvc-core/tree/v1.0.5"
+                "source": "https://github.com/SamoJanezic/php-mvc-core/tree/v1.0.6"
             },
             "time": "2024-01-10T11:01:26+00:00"
         },
@@ -517,5 +517,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
