@@ -1,10 +1,11 @@
 <?php
 /** @var $model \app\models\user */
+use samojanezic\phpmvc\form\Form;
 ?>
 
 <h1>Create an account</h1>
 
-<? $form = \samojanezic\phpmvc\form\Form::begin('', "post") ?>
+<? $form = Form::begin('', "post", 'enctype="multipart/form-data"') ?>
   <div class="row">
     <div class="col">
       <? echo $form->field($model, 'firstname') ?>
@@ -20,4 +21,4 @@
   echo $form->field($model, 'user_pic')->fileField();
   ?>
   <button type="submit" class="btn btn-primary">Submit</button>
-<? echo \samojanezic\phpmvc\form\Form::end() ?>
+<? echo Form::end() ?>

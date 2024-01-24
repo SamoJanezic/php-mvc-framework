@@ -7,7 +7,7 @@ use samojanezic\phpmvc\form\TextareaField;
 <h1>Create new blog</h1>
 
 <?
-    $form = Form::begin('', 'post');
+    $form = Form::begin('', 'post', 'enctype="multipart/form-data"');
     echo $form->field($model, 'title');
     echo new TextareaField($model, 'content');
     echo $form->field($model, 'image')->fileField();
