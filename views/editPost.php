@@ -8,7 +8,7 @@ use samojanezic\phpmvc\form\TextareaField;
 <div class="edit-box">
     <div class="form-box">
     <?
-        $form = Form::begin('', 'post');
+        $form = Form::begin('', 'post', 'enctype="multipart/form-data"');
         echo $form->field($model, 'title');
         echo new TextareaField($model, 'content');
         echo $form->field($model, 'image')->fileField();
