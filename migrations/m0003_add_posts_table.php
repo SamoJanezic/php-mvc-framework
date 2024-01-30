@@ -9,7 +9,7 @@ class m0003_add_posts_table
     $SQL = "CREATE TABLE posts (
         id INT AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
-        content VARCHAR(255) NOT NULL,
+        content LONGTEXT NOT NULL,
         image VARCHAR(255) NOT NULL,
         user_id INT NOT NULL,
         url_name VARCHAR(255) NOT NULL,
