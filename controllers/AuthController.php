@@ -13,6 +13,7 @@ class AuthController extends Controller
 		$this->registerMiddleware(new AuthMiddleware(['profile']));
 		$this->registerMiddleware(new AuthMiddleware(['create']));
 		$this->registerMiddleware(new AuthMiddleware(['ownPosts']));
+		$this->registerMiddleware(new AuthMiddleware(['editPost']));
 	}
 
 }
