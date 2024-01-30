@@ -15,7 +15,11 @@ class PostController extends AuthController
 	{
 		$create = new Post();
 		if ($request->isPost()) {
-			$create->image = Helpers::uploadImage('image', 'images/');
+			if (Helpers::fileIsGiven()) {
+				$create->image = Helpers::uploadImage('image', 'images/');
+			} else {
+				$create->image = 'assets/placeholder.png';
+			}
 			$create->loadData($request->getBody());
 			if ($create->validate() && $create->save()) {
 				Application::$app->session->setFlash('success', 'Your blog has been saved.');
@@ -71,7 +75,11 @@ class PostController extends AuthController
 		];
 
 		if($request->isPost()) {
-			$post->image = Helpers::uploadImage('image', 'images/');
+			if (Helpers::fileIsGiven()) {
+				$post->image = Helpers::uploadImage('image', 'images/');
+			} else {
+				$post->image = 'assets/placeholder.png';
+			}
 			$post->loadData($request->getBody());
 			$id = $request->getBody()['id'];
 			$post->editPost($id);

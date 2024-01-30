@@ -14,7 +14,11 @@ class RegisterController extends AuthController
 		$user = new User();
 		if ($request->isPost()) {
 			$user->loadData($request->getBody());
-			$user->user_pic = Helpers::uploadImage('user_pic', 'images/');
+			if (Helpers::fileIsGiven()) {
+				$user->image = Helpers::uploadImage('image', 'images/');
+			} else {
+				$user->image = 'assets/placeholder.png';
+			}
 			if ($user->validate() && $user->save()) {
 				Application::$app->session->setFlash('success', 'Thanks for registering');
 				Application::$app->response->redirect('/');
