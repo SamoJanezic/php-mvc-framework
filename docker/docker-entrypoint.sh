@@ -1,5 +1,6 @@
 #!/bin/bash
 cp .env.example .env
 composer update
-php migrations.php
+./docker/wait-for-it.sh db:3306 --timeout=60 -- php migrations.php > testecho.txt
+
 exec "$@"
