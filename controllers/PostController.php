@@ -15,7 +15,7 @@ class PostController extends AuthController
 	{
 		$create = new Post();
 		if ($request->isPost()) {
-			if (Helpers::fileIsGiven()) {
+			if (Helpers::fileIsGiven('image')) {
 				$create->image = Helpers::uploadImage('image', 'images/');
 			} else {
 				$create->image = 'assets/placeholder.png';
@@ -75,10 +75,10 @@ class PostController extends AuthController
 		];
 
 		if($request->isPost()) {
-			if (Helpers::fileIsGiven()) {
+			if (Helpers::fileIsGiven('image')) {
 				$post->image = Helpers::uploadImage('image', 'images/');
 			} else {
-				$post->image = 'assets/placeholder.png';
+				$post->image = $load[0]->image;
 			}
 			$post->loadData($request->getBody());
 			$id = $request->getBody()['id'];
