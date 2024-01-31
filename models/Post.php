@@ -33,7 +33,6 @@ class Post extends PostModel
 		return  [
 			'title' => [self::RULE_REQUIRED],
 			'content' => [self::RULE_REQUIRED],
-			'image' => [self::RULE_REQUIRED]
 		];
 	}
 
