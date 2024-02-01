@@ -1,9 +1,7 @@
-// import axios from 'axios';
-
 const app = Vue.createApp({
     data() {
         return {
-            title: 'BloJist',
+            title: 'BlogVist',
             posts: [0]
         }
     },
@@ -33,10 +31,6 @@ const app = Vue.createApp({
         window.removeEventListener('scroll', this.endOfPage);
     },
     template:
-    `
-    <div>
-    <button @click="getPosts" class="btn btn-primary">click me</button>
-    </div>
-    `,
+    ``,
 })
 app.mount("#app");

@@ -12,7 +12,7 @@ class PageController extends Controller
 	{
 		$post = new Post;
 		$params = [
-			'name' => "the BloJist",
+			'name' => "the BlogVist",
 			'allPosts' => $post->getPosts(),
 		];
 		return $this->render('home', $params);
